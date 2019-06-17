@@ -4,17 +4,57 @@
 
 <html>
 <head runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-    <asp:ContentPlaceHolder id="head" runat="server">
+    <style>
+        #menu{
+            height:90px;
+            background-color:white;
+        }
+        #sidebar {
+            height: 100%;
+            width: 160px;
+            position: fixed;
+            z-index: 1;
+            top: 90px;
+            left: 0;
+            background-color: white;
+            overflow-x: hidden;
+            padding-top: 0px;
+        }
+        #content {
+            height: 100%;
+            overflow:auto;
+            margin-left: 160px;
+            padding: 0px 10px;
+            background-image: url('img/background-pattern.png');
+        }
+        body{
+            margin:0; 
+            padding:0; 
+            height:100%; 
+            width:100%;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
+        <div id="menu">
+            <img id="header_img" src="img/mojo-logo-triangle.svg"/>
+            <asp:ContentPlaceHolder ID="menuPH" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div id="sidebar">
+            <asp:ContentPlaceHolder ID="sidebarPH" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div id="content">
+            <asp:ContentPlaceHolder ID="contentPH" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
     </form>
 </body>
 </html>
